@@ -4,13 +4,17 @@ LABEL="Docker Switch"
 docker_status=`systemctl is-active docker`
 
 activate () {
-	systemctl reload-or-restart docker;
-	DISPLAY=:0.0; notify-send 'Docker was activated.' --icon=dialog-information -t 1000;
+	if `systemctl reload-or-restart docker`
+	then
+		DISPLAY=:0.0; notify-send 'Docker was activated.' --icon=dialog-information -t 1000;
+	fi
 }
 
 deactivate () {
-	systemctl stop docker;
-	DISPLAY=:0.0; notify-send 'Docker was deactivated.' --icon=dialog-information -t 1000;
+	if `systemctl stop docker`
+	then
+		DISPLAY=:0.0; notify-send 'Docker was deactivated.' --icon=dialog-information -t 1000;
+	fi
 }
 
 
