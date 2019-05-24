@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Docker Switch
+Exec=/bin/bash ~/.local/share/bin/docker-switch/switch
+Icon=~/.local/share/bin/docker-switch/docker.png
+Type=Application
